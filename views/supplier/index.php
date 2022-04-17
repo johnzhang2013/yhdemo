@@ -23,17 +23,20 @@ $this->params['breadcrumbs'][] = $this->title;
             'class' => 'btn btn-default'
         ],
         'exportConfig' => [
+            ExportMenu::FORMAT_HTML => false,
             ExportMenu::FORMAT_TEXT => false,
             ExportMenu::FORMAT_PDF => false,
             ExportMenu::FORMAT_EXCEL_X => false,
         ],
         'columnSelectorOptions'=>[
             'label' => '选择字段',
+            'class' => 'btn btn-danger'
         ],
         'filename' => '供应商列表_'.date('Y-m-d'),
         'selectedColumns'=> [1,2,3,4,5,6,7,8],//导出不选中#和操作栏
         'hiddenColumns'=>[0, 9], //隐藏#和操作栏
-        ]);
+        'fontAwesome' => true,
+    ]);
     ?>
 
     <?= GridView::widget([
