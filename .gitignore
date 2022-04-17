@@ -1,6 +1,10 @@
 # phpstorm project files
 .idea
-
+.bowerrc
+LICENSE.md
+Vagrantfile
+codeception.yml
+composer.lock
 # netbeans project files
 nbproject
 
