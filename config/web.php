@@ -54,6 +54,11 @@ $config = [
     ],
     'params' => $params,
     'timeZone' => 'Asia/Shanghai',
+    'modules' => [
+        'gridview' => [
+            'class' => 'kartik\grid\Module',
+        ]
+    ],
 ];
 
 if (YII_ENV_DEV) {

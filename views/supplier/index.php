@@ -4,7 +4,9 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\CheckboxColumn;
-use yii\grid\GridView;
+//use yii\grid\GridView;
+use kartik\grid\GridView;
+use kartik\export\ExportMenu;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -107,12 +109,26 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]
     ]);?>
+
+    <?= ExportMenu::widget([
+        'dataProvider' => $dataProvider,
+        'columns' => $gridColumns,
+        'encoding' => 'gb2312',
+        'dropdownOptions' => [
+            'label' => '导出',
+            'class' => 'btn btn-default'
+        ],
+        'exportConfig' => [
+            ExportMenu::FORMAT_TEXT => false,
+            ExportMenu::FORMAT_PDF => false,
+            ExportMenu::FORMAT_EXCEL_X => false,
+        ],
+        'columnSelectorOptions'=>[
+            'label' => '选择字段',
+        ],
+        'filename' => '供应商列表_'.date('Y-m-d'),
+        'selectedColumns'=> [1, 2],//导出不选中#和操作栏
+        'hiddenColumns'=>[0, 3], //隐藏#和操作栏
+        ]);
+    ?>    
 </div>
-<?php
-    $this->registerJs('
-        $(".gridview").on("click", function () {
-            var keys = $("#supplier_container").yiiGridView("getSelectedRows");
-            console.log(keys);
-        });
-    ');
-?>
