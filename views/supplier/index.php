@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'encoding' => 'gb2312',
         'dropdownOptions' => [
             'label' => '导出',
-            'class' => 'btn btn-default'
+            'class' => 'btn btn-success'
         ],
         'exportConfig' => [
             ExportMenu::FORMAT_HTML => false,
@@ -33,8 +33,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'class' => 'btn btn-danger'
         ],
         'filename' => '供应商列表_'.date('Y-m-d'),
-        'selectedColumns'=> [1,2,3,4,5,6,7,8],//导出不选中#和操作栏
-        'hiddenColumns'=>[0, 9], //隐藏#和操作栏
+        'selectedColumns'=> [1,2,3,4,5,6,7,8],//选中可导出的字段
+        'hiddenColumns'=>[0, 9],//隐藏#和操作栏
         'fontAwesome' => true,
     ]);
     ?>
