@@ -10,7 +10,7 @@ use kartik\export\ExportMenu;
 
 $this->title = '系统供应商';
 $this->params['breadcrumbs'][] = $this->title;
-$this->gvColumns = ;
+
 ?>
 <div class="supplier-index">
     <h1><?= Html::encode($this->title) ?></h1>
