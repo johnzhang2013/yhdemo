@@ -14,15 +14,6 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="supplier-index">
     <h1><?= Html::encode($this->title) ?></h1>
-    <?= Html::a('全部导出', "javascript:void(0);", ['class' => 'btn btn-success gridview']) ?>
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'options' => ['class' => 'grid-view','style'=>'overflow:auto', 'id' => 'supplier_container'],
-        'layout' => "{summary}\n{items}\n{pager}",
-        'columns' => $gvColumns
-    ]);?>
-
     <?= ExportMenu::widget([
         'dataProvider' => $dataProvider,
         'columns' => $gvColumns,
@@ -40,8 +31,17 @@ $this->params['breadcrumbs'][] = $this->title;
             'label' => '选择字段',
         ],
         'filename' => '供应商列表_'.date('Y-m-d'),
-        'selectedColumns'=> [1, 2],//导出不选中#和操作栏
-        'hiddenColumns'=>[0, 3], //隐藏#和操作栏
+        'selectedColumns'=> [1,2,3,4,5,6,7,8],//导出不选中#和操作栏
+        'hiddenColumns'=>[0, 9], //隐藏#和操作栏
         ]);
-    ?>    
+    ?>
+
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'options' => ['class' => 'grid-view','style'=>'overflow:auto', 'id' => 'supplier_container'],
+        'layout' => "{summary}\n{items}\n{pager}",
+        'columns' => $gvColumns,
+        'export' => false
+    ]);?>    
 </div>
