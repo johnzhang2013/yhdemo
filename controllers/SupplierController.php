@@ -16,6 +16,8 @@ use yii\grid\CheckboxColumn;
 use yii\grid\ActionColumn;
 use yii\helpers\Url;
 
+use kartik\grid\CheckboxColumn as KartikGridCheckboxColumn;
+
 /**
  * SupplierController implements the CRUD actions for Supplier model.
  */
@@ -145,7 +147,8 @@ class SupplierController extends Controller
     protected function makeGridViewColumns(){
         return [
             [
-                "class" => CheckboxColumn::className(),
+                "class" => KartikGridCheckboxColumn::className(),
+                'headerOptions' => ['class' => 'kartik-sheet-style'],
                 "name" => "id",
             ],            
             
