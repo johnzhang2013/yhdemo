@@ -48,3 +48,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'export' => false
     ]);?>    
 </div>
+
+<?php
+//Kartik插件的样式和Bootstrap可能有冲突-导致页面点击导出按钮后无反应-导出Dialog不显示
+//故采用下面方式写死样式-以便导出Dialog可以显示-可以正常导入
+//在实际项目中-需要前端工程师去定位解决这个样式bug
+$this->registerCss(".modal-backdrop.in{opacity: 0.5;!important}.bootstrap-dialog.fade.in{opacity: 1;!important}");
+?>
